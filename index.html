@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creator Vault — Recursos para Crecimiento Acelerado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --white: #F5F2EB;
+    --cream: #EDE8DC;
+    --gold: #D4A843;
+    --gold-light: #F0C96A;
+    --red: #E63946;
+    --green: #2DC653;
+    --gray: #3A3A3A;
+    --gray-mid: #6B6B6B;
+    --border: #222;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Ticker */
+  .ticker-wrap {
+    background: var(--gold);
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .ticker-track {
+    display: inline-block;
+    animation: ticker 25s linear infinite;
+  }
+  .ticker-item {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--black);
+    font-weight: 700;
+    padding: 0 32px;
+  }
+  @keyframes ticker {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* NAV */
+  nav {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(10px);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+
+  /* HERO - CATALOG HEADER */
+  .hero-catalog {
+    padding: 100px 60px 60px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-catalog h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(60px, 10vw, 150px);
+    line-height: 0.85;
+    margin-bottom: 20px;
+  }
+  .hero-catalog .outline {
+    -webkit-text-stroke: 1px var(--white);
+    color: transparent;
+  }
+  .hero-catalog p {
+    color: var(--gray-mid);
+    max-width: 600px;
+    margin: 0 auto;
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+  }
+
+  /* FEATURED PRODUCT (0 TO 1K) */
+  .featured-section {
+    padding: 80px 60px;
+    background: #0F0F0F;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .featured-tag {
+    background: var(--red);
+    color: white;
+    padding: 4px 12px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  /* GRID DE PRODUCTOS */
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .product-card {
+    background: var(--black);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s;
+  }
+  .product-card:hover {
+    background: #0D0D0D;
+  }
+  .product-type {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gold);
+    margin-bottom: 15px;
+    display: block;
+  }
+  .product-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 15px;
+  }
+  .product-desc {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 30px;
+    flex-grow: 1;
+    line-height: 1.6;
+  }
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #1A1A1A;
+    padding-top: 20px;
+  }
+  .product-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+  }
+  .product-btn {
+    text-decoration: none;
+    color: var(--black);
+    background: var(--gold);
+    padding: 8px 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    transition: 0.2s;
+  }
+  .product-btn:hover { background: var(--white); }
+
+  /* FOOTER */
+  footer {
+    padding: 60px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+  }
+  .footer-copy {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: #444;
+  }
+
+  @media (max-width: 768px) {
+    .featured-section { grid-template-columns: 1fr; padding: 40px 20px; }
+    .hero-catalog { padding: 60px 20px; }
+    .products-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item">OFERTA DE LANZAMIENTO</span>
+    <span class="ticker-item">RECURSOS PARA CREADORES</span>
+    <span class="ticker-item">DESCARGA INMEDIATA</span>
+    <span class="ticker-item">SIN MOSTRAR TU CARA</span>
+    <span class="ticker-item">OFERTA DE LANZAMIENTO</span>
+    <span class="ticker-item">RECURSOS PARA CREADORES</span>
+    <span class="ticker-item">DESCARGA INMEDIATA</span>
+    <span class="ticker-item">SIN MOSTRAR TU CARA</span>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-logo">CREATOR VAULT</div>
+</nav>
+
+<header class="hero-catalog">
+  <div class="reveal">
+    <p>DIGITAL ASSETS & RESOURCES</p>
+    <h1>THE <span class="outline">VAULT</span></h1>
+    <p>Herramientas tácticas, guías y archivos para escalar tu marca personal y monetizar tu contenido desde el día 1.</p>
+  </div>
+</header>
+
+<section class="featured-section">
+  <div class="reveal">
+    <span class="featured-tag">BEST SELLER</span>
+    <h2 style="font-family:'Bebas Neue',sans-serif; font-size: 64px; line-height: 0.9; margin-bottom: 20px;">
+      DE 0 A 1K SEGUIDORES <br> <span style="color:var(--gold)">EN 30 DIAS</span>
+    </h2>
+    <p style="color:#AAA; margin-bottom: 30px; line-height: 1.6;">
+      El sistema exacto para crecer en TikTok e Instagram sin aparecer en cámara. Incluye calendario de 30 días, scripts probados y kit de herramientas IA.
+    </p>
+    <div style="display:flex; align-items: baseline; gap: 15px; margin-bottom: 30px;">
+      <span style="font-size: 48px; font-family:'Bebas Neue',sans-serif; color:var(--gold);">$10</span>
+      <span style="text-decoration: line-through; color: #444;">$27.00</span>
+    </div>
+    <a href="#featured" class="product-btn" style="padding: 15px 40px; font-size: 24px;">OBTENER ACCESO INMEDIATO →</a>
+  </div>
+  <div class="reveal" style="background: #151515; padding: 40px; border: 1px solid #222;">
+    <ul style="list-style: none; font-size: 14px; color: #888;">
+      <li style="margin-bottom: 12px;">✓ 8 Páginas de Metodología</li>
+      <li style="margin-bottom: 12px;">✓ 5 Formatos de Viralización</li>
+      <li style="margin-bottom: 12px;">✓ Calendario Paso a Paso</li>
+      <li style="margin-bottom: 12px;">✓ Monetización sin Rostro</li>
+    </ul>
+  </div>
+</section>
+
+<section class="products-grid">
+  
+  <div class="product-card reveal">
+    <span class="product-type">E-BOOK / PDF</span>
+    <h3 class="product-title">HOOKS QUE VENDEN</h3>
+    <p class="product-desc">50 ganchos de alto impacto psicológico para Reels y TikTok que retienen al usuario y aumentan la retención en un 40%.</p>
+    <div class="product-footer">
+      <span class="product-price">$7</span>
+      <a href="#" class="product-btn">COMPRAR</a>
+    </div>
+  </div>
+
+  <div class="product-card reveal">
+    <span class="product-type">TEMPLATES / CANVA</span>
+    <h3 class="product-title">FACELESS AESTHETIC KIT</h3>
+    <p class="product-desc">20 plantillas de video y portadas minimalistas diseñadas específicamente para cuentas "Faceless" de alto valor.</p>
+    <div class="product-footer">
+      <span class="product-price">$12</span>
+      <a href="#" class="product-btn">COMPRAR</a>
+    </div>
+  </div>
+
+  <div class="product-card reveal">
+    <span class="product-type">MASTERCLASS / VIDEO</span>
+    <h3 class="product-title">MONETIZA CON AFILIADOS</h3>
+    <p class="product-desc">Cómo configurar tu cuenta de Hotmart o Amazon para vender productos de otros sin invertir un solo dólar.</p>
+    <div class="product-footer">
+      <span class="product-price">$15</span>
+      <a href="#" class="product-btn">COMPRAR</a>
+    </div>
+  </div>
+
+  <div class="product-card reveal">
+    <span class="product-type">DATABASE / NOTION</span>
+    <h3 class="product-title">PLANIFICADOR DE CONTENIDO</h3>
+    <p class="product-desc">Sistema completo en Notion para organizar tus ideas, guiones y fechas de publicación para todo el año.</p>
+    <div class="product-footer">
+      <span class="product-price">$9</span>
+      <a href="#" class="product-btn">COMPRAR</a>
+    </div>
+  </div>
+
+</section>
+
+<section style="padding: 100px 60px; max-width: 800px; margin: 0 auto;">
+  <h2 style="font-family:'Bebas Neue',sans-serif; font-size: 48px; text-align: center; margin-bottom: 40px;">PREGUNTAS</h2>
+  <div style="border-top: 1px solid #222;">
+    <div style="padding: 20px 0; border-bottom: 1px solid #222;">
+      <p style="color:var(--gold); font-size: 14px; margin-bottom: 5px;">¿Cómo recibo los archivos?</p>
+      <p style="font-size: 14px; color: #777;">Tras completar el pago, recibirás un enlace de descarga automática en tu correo electrónico.</p>
+    </div>
+    <div style="padding: 20px 0; border-bottom: 1px solid #222;">
+      <p style="color:var(--gold); font-size: 14px; margin-bottom: 5px;">¿Los pagos son seguros?</p>
+      <p style="font-size: 14px; color: #777;">Usamos Stripe y PayPal para garantizar que tus datos estén 100% protegidos.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="nav-logo">CREATOR VAULT</div>
+  <p class="footer-copy">© 2024 · ACCESO DE POR VIDA · TODOS LOS DERECHOS RESERVADOS</p>
+</footer>
+
+<script>
+  // Scroll reveal simple
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = 1; });
+  }, { threshold: 0.1 });
+  
+  document.querySelectorAll('.reveal').forEach(el => {
+    el.style.opacity = 0;
+    el.style.transition = "opacity 0.8s ease-out";
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
+
+
